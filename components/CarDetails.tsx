@@ -10,13 +10,14 @@ import { generateCarImageUrl } from "@/utils";
 interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
-  car: CarProps;
+  car: CarProps; // we are reusing an interface here
 }
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
   <>
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as='div' className='relative z-10' onClose={closeModal}>
+      {/* the 'appear' tag means the model is going to show up. show above represents when it will show up and i.e isOpen === true */}
+      <Dialog as='div' className='relative z-10' onClose={closeModal}> {/* onClose, closes this div */}
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -26,8 +27,8 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <div className='fixed inset-0 bg-black bg-opacity-25' />
-        </Transition.Child>
+          <div className='fixed inset-0 bg-black bg-opacity-50' />
+        </Transition.Child> {/* this section is the backdrop seen once a model is open and on top of the back drop we want to show the model i.e each car details */}
 
         <div className='fixed inset-0 overflow-y-auto'>
           <div className='flex min-h-full items-center justify-center p-4 text-center'>
@@ -58,21 +59,17 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                 <div className='flex-1 flex flex-col gap-3'>
                   <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
                     <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
-                    {/* <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/> */}
                   </div>
 
                   <div className='flex gap-3'>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                       <Image src={generateCarImageUrl(car, "29")} alt='car model' fill priority className='object-contain' />
-                      {/* <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/> */}
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                       <Image src={generateCarImageUrl(car, "33")} alt='car model' fill priority className='object-contain' />
-                      {/* <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/> */}
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                       <Image  src={generateCarImageUrl(car, "13")} alt='car model' fill priority className='object-contain' />
-                      {/* <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/> */}
                     </div>
                   </div>
                 </div>
@@ -92,7 +89,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                           {value}
                         </p>
                       </div>
-                    ))}
+                    ))} {/*Object.entries(): Returns an array of key/values of the enumerable properties of an object */}
                   </div>
                 </div>
               </Dialog.Panel>
@@ -207,20 +204,19 @@ export default CarDetails;
 //                   <Image src={`/close.svg`} alt='clode' width={20} height={20} className=' object-contain'/>
 //                 </button>
 //                 <div className='flex-1 flex flex-col gap-3'>
-//                   <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
-//                   <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/>
+//                   <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'
 //                   </div>
 //                   <div className='flex gap-3'>
 //                     <div className='flex-1 relative w-0 h-24 bg-primary-blue-100 rounded-lg'>
-//                       <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/>
+
 //                     </div>
                     
 //                     <div className='flex-1 relative w-0 h-24 bg-primary-blue-100 rounded-lg'>
-//                       <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/>
+
 //                     </div>
 
 //                     <div className='flex-1 relative w-0 h-24 bg-primary-blue-100 rounded-lg'>
-//                       <Image src={generateCarImageUrl(car, 'angle')} alt="car model" fill priority className="object-contain"/>
+
 //                     </div>
 //                   </div>
 //                 </div>

@@ -8,7 +8,8 @@ import { manufacturers } from "@/constant";
 import { SearchManuFacturerProps } from "@/types";
 
 const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
-  const [query, setQuery] = useState('');
+  //we are destructuring the props gotten from SearchManuFacturerProps
+  const [query, setQuery] = useState(''); // this is the search query passed to the Combobox.Input onChange event property
 
   const filteredManufacturers =
     query === ""
@@ -18,11 +19,13 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
             .toLowerCase()
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
-        );
+  ); // if query is an empty string then return manufacturers else return the filtered manufacturers 
 
   return (
     <div className='search-manufacturer'>
+
       <Combobox value={manufacturer} onChange={setManuFacturer}>
+      {/* the manufacturer above represent the car makes/name which we will be using it to update our search */}
         <div className='relative w-full'>
           {/* Button for the combobox. Click on the icon to see the complete dropdown */}
           <Combobox.Button className='absolute top-[14px]'>
@@ -38,7 +41,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
           {/* Input field for searching */}
           <Combobox.Input
             className='search-manufacturer__input'
-            displayValue={(item: string) => item}
+            displayValue={(item: string) => item} // this is something you have to provide to an input and this is consister of callback function that get the value and then displays the value
             onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes
             placeholder='Volkswagen...'
           />
@@ -52,7 +55,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
             afterLeave={() => setQuery("")} // Reset the search query after the transition completes
           >
             <Combobox.Options
-              className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
+              className='absolute mt-1 z-20 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
               static
             >
               {filteredManufacturers.length === 0 && query !== "" ? (

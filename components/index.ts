@@ -21,3 +21,5 @@ export {
     ShowMore,
     Footer
 }
+
+//this is a single file were we export all of our components after importing them

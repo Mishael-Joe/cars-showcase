@@ -32,7 +32,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </p>
       
       <div className="relative w-full h-40 my-3 object-contain">
-      <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
+      <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' /> {/*gotten from generateCarImageUrl in utils and the pass a single prop which is a car */}
       </div>
 
       <div className="flex relative w-full mt-2">

@@ -8,11 +8,11 @@ export interface CustomButtonPros {
     textStyles?: string;
     rightIcon?: string;
     isDisabled?: boolean;
-}
+} // an interface specifies how a specific structure should look like, what variables and values should it have
 
 export interface SearchManuFacturerProps {
     manufacturer: string
-    setManuFacturer: (manufacturer: string) => void
+    setManuFacturer: (manufacturer: string) => void // a function that that takes manufacturer as a string and returns nothing (void)
 }
 
 export interface CarProps {
@@ -45,10 +45,22 @@ export interface optionProps {
 
 export interface CustomFilterProps {
     title: string;
-    options: optionProps[];
+    options: optionProps[]; // we are creating an interface within an interface. optionProps[] is an array
 }
 
 export interface showMoreProps {
     pageNumber: number;
     isNext: boolean;
 }
+
+export interface FilterProps {
+    manufacturer?: string;
+    year?: number;
+    model?: string;
+    limit?: number;
+    fuel?: string;
+  }
+  
+  export interface HomeProps {
+    searchParams: FilterProps;
+  }

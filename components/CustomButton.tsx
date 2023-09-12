@@ -4,6 +4,7 @@ import { CustomButtonPros } from '@/types';
 import Image from 'next/image'
 
 const CustomButton = ({title, containerStyles, handleClick, btnType, textStyles, rightIcon}:CustomButtonPros) => {
+  //we are destructuring the props gotten from CustomButtonPros
   return (
     <button 
     disabled={false}
@@ -16,7 +17,7 @@ const CustomButton = ({title, containerStyles, handleClick, btnType, textStyles,
         </span>
         {rightIcon && (
           <div className='relative w-6 h-6'>
-            <Image src={'/rightIcon'} alt='rightIcon' fill className='object-contain'/>
+            <Image src={'/right-arrow.svg'} alt='rightIcon' fill className='object-contain'/>
           </div>
         )}
     </button>
