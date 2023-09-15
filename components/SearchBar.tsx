@@ -28,7 +28,7 @@ const SearchBar = () => {
       return alert('Please fill in the search');
     }
 
-    updateSearchParams(manufacturer.toLowerCase(), model.toLowerCase()); // update search params. see line 55
+    updateSearchParams(manufacturer.toLowerCase(), model.toLowerCase()); // update search params. see line 36 - 61
     // as soon as you update the search params, make Nextjs to automatically refetch the data and to do this,
     // go back to the page.tsx were we are fetching the data in the first place and get all the data from search params
   }
@@ -57,7 +57,7 @@ const SearchBar = () => {
     // call the router as a hook i.e const router = useRouter() as seen in line 22
     // remember to call the updateSearchParams function in your handleSearch function
 
-    router.push(newPathname)
+    router.push(newPathname, {scroll: false});
   }
 
   return (

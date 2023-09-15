@@ -16,7 +16,7 @@ export default async function Home({ searchParams }: any) {
   // in Nextjs you can immediately extract all the searchParams as props or from props of a specific page right here
   // then in the fetchcars function in utils, you can pass all of the options
 
-  console.log(allCars)
+  //console.log(allCars)
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (

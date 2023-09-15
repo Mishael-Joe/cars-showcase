@@ -13,7 +13,7 @@ interface CarCardProps {
 
 const CarCard = ({ car }: CarCardProps) => {
 
-    const { city_mpg, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, carClass } = car;
+    const { city_mpg, drive, make, model, transmission, year } = car;
 
     const carRent = calculateCarRent(city_mpg, year);
 
@@ -76,5 +76,3 @@ const CarCard = ({ car }: CarCardProps) => {
 }
 
 export default CarCard
-
-//hrjavascript-mastery  API KEY

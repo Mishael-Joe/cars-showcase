@@ -13,7 +13,7 @@ const ShowMore  = ({ pageNumber, isNext }: showMoreProps) => {
 
     const newPathName = updateSearchParams('limit', `${newLimit}`)
 
-    router.push(newPathName)
+    router.push(newPathName, {scroll: false})
   }
 
   return (
